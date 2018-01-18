@@ -1,0 +1,19 @@
+extends index
+
+block append content
+  h2 Login
+  form(name="login", action="/users/login", method="post")
+    div
+      label Email
+      input(type="text", value=email, name="email")
+    div
+      label Password
+      input(type="password", name="password")
+    if errors
+      ul
+        for error in errors
+          li #{error.message}
+    div
+      input(type="submit", value="Login")
+      br
+      a(href='/') Signup
